@@ -1,10 +1,10 @@
-import React from 'react'
-import { AuthRedirect } from '../hooks/authUser'
-import { supabase } from '../utils/initSupabase'
-import { Auth, Card, Typography, Space } from '@supabase/ui'
+import { Auth, Card, Space, Typography } from '@supabase/ui'
 
+import { AuthRedirect } from '../hooks/authUser'
 import Head from '../components/Head'
 import Header from '../components/Header'
+import React from 'react'
+import { supabase } from '../utils/initSupabase'
 
 const AuthPage = () => {
   AuthRedirect()
@@ -21,7 +21,7 @@ const AuthPage = () => {
             </div>
             <Auth
               supabaseClient={supabase}
-              providers={['google', 'github']}
+              providers={['github']}
               view={'sign_in'}
               socialLayout="horizontal"
               socialButtonSize="xlarge"

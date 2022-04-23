@@ -1,4 +1,5 @@
-import { useEffect, useState, createContext, useContext } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
+
 import { supabase } from '../utils/initSupabase'
 import { useRouter } from 'next/router'
 
@@ -38,10 +39,12 @@ export const UserContextProvider = (props) => {
     const session = supabase.auth.session()
     setSession(session)
     setUser(session?.user ?? false)
-    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
-      setSession(session)
-      setUser(session?.user ?? false)
-    })
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        setSession(session)
+        setUser(session?.user ?? false)
+      }
+    )
 
     return () => {
       authListener.unsubscribe()

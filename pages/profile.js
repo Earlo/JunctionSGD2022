@@ -1,8 +1,8 @@
-import React from 'react'
-import { useUser, RequireAuth } from '../hooks/authUser'
+import { Card, Space, Typography } from '@supabase/ui'
+import { RequireAuth, useUser } from '../hooks/authUser'
 
-import { Card, Typography, Space } from '@supabase/ui'
 import Header from '../components/Header'
+import React from 'react'
 
 export default function Profile() {
   RequireAuth()
